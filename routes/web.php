@@ -17,4 +17,6 @@ Route::prefix('admin')->as('admin.')->middleware('auth')->group(function () {
     Route::get('/dashboard',[AdminController::class, 'dashboard'])->name('dashboard');
     Route::get('/user/change-password',[UserController::class, 'changePassword'])->name('change.password');
     Route::put('/user/password/update', [UserController::class, 'updatePassword'])->name('password.update');
+
+    Route::get('/categories/list',[AdminController::class, 'categories'])->name('categories.list');
 });
