@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -18,5 +19,5 @@ Route::prefix('admin')->as('admin.')->middleware('auth')->group(function () {
     Route::get('/user/change-password',[UserController::class, 'changePassword'])->name('change.password');
     Route::put('/user/password/update', [UserController::class, 'updatePassword'])->name('password.update');
 
-    Route::get('/categories/list',[AdminController::class, 'categories'])->name('categories.list');
+    Route::resource('categories', CategoryController::class);
 });

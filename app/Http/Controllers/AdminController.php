@@ -10,10 +10,4 @@ class AdminController extends Controller
     public function dashboard(){
         return view("admin.dashboard");
     }
-
-    public function categories(){
-        $categories = Category::all();
-
-        return view("admin.category", compact('categories'));
-    }
 }

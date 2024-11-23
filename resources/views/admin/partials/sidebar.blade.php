@@ -17,7 +17,7 @@
             <span>Dashboard</span></a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="{{route('admin.categories.list')}}">
+        <a class="nav-link" href="{{route('admin.categories.index')}}">
             <i class="fas fa-fw fa-list-alt"></i>
             <span>Categories</span></a>
     </li>

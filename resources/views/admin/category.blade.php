@@ -19,18 +19,23 @@
                         <td>{{$category->name}}</td>
                         <td>{{$category->url}}</td>
                         <td>
-                            <a class="btn btn-primary btn-sm btn-icon-split" href="">
+                            <a class="btn btn-primary btn-sm btn-icon-split" href="{{route('admin.categories.edit', $category)}}">
                                 <span class="icon text-white-50">
                                     <i class="fas fa-pen"></i>
                                 </span>
                                 <span class="text">Edit</span>
                             </a>
-                            <a class="btn btn-danger btn-sm btn-icon-split" href="">
-                                <span class="icon text-white-50">
-                                    <i class="fas fa-trash"></i>
-                                </span>
-                                <span class="text">Delete</span>
-                            </a>
+
+                            <form action="{{ route('admin.categories.destroy', $category) }}" method="POST" style="display:inline;">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger btn-sm btn-icon-split">
+                                    <span class="icon text-white-50">
+                                        <i class="fas fa-trash"></i>
+                                    </span>
+                                    <span class="text">Delete</span>
+                                </button>
+                            </form>
                         </td>
                     </tr>
                 @endforeach
