@@ -8,7 +8,7 @@
         <h2 class="h4 fw-bolder">{{$post->title}}</h2>
         <p>{{Str::limit($post->description, 50)}}</p>
         <a class="text-decoration-none" href="#">
-            Call to action
+            Read more
             <i class="bi bi-arrow-right"></i>
         </a>
     </div>
