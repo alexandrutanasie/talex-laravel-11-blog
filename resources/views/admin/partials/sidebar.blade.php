@@ -17,9 +17,17 @@
             <span>Dashboard</span></a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="{{route('admin.categories.index')}}">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#menuCategories" aria-expanded="true"
+            aria-controls="collapseTwo">
             <i class="fas fa-fw fa-list-alt"></i>
-            <span>Categories</span></a>
+            <span>Categories</span>
+        </a>
+        <div id="menuCategories" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner">
+                <a class="collapse-item" href="{{route('admin.categories.create')}}"><i class="fas fa-fw fa-plus"></i> <span>Add Category</span></a>
+                <a class="collapse-item" href="{{route('admin.categories.index')}}"><i class="fas fa-fw fa-list"></i> <span>Categories list</span></a>
+            </div>
+        </div>
     </li>
  
     <!-- Divider -->
