@@ -21,6 +21,14 @@
             <textarea name="description" id="description" class="form-control">{{ old('description', $post->description ?? '') }}</textarea>
         </div>
         <div class="mb-3">
+            <label for="category" class="form-label">Category</label>
+            <select name="categories[]" id="category" class="form-control" multiple>
+                @foreach ($categories as $category)
+                    <option value="{{ $category->id }}">{{ $category->name }}</option>
+                @endforeach
+            </select>
+        </div>
+        <div class="mb-3">
             <label for="url" class="form-label">URL</label>
             <input type="text" name="url" id="url" class="form-control" value="{{ old('url', $post->url ?? '') }}">
             @if ($errors->has('url'))

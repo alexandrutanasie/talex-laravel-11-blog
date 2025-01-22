@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Post;
 use Illuminate\Http\Request;
 
@@ -53,8 +54,9 @@ class PostsController extends Controller
     public function edit(string $id)
     {
         $post = Post::findOrFail($id);
+        $categories = Category::all();
 
-        return view('admin.posts.create', compact('post'));
+        return view('admin.posts.create', compact('post', 'categories'));
     }
 
     /**
