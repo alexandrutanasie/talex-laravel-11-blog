@@ -29,6 +29,19 @@
             </div>
         </div>
     </li>
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#menuPosts" aria-expanded="true"
+            aria-controls="collapseTwo">
+            <i class="fas fa-fw fa-list-alt"></i>
+            <span>Posts</span>
+        </a>
+        <div id="menuPosts" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner">
+                <a class="collapse-item" href="{{route('admin.posts.create')}}"><i class="fas fa-fw fa-plus"></i> <span>Add post</span></a>
+                <a class="collapse-item" href="{{route('admin.posts.index')}}"><i class="fas fa-fw fa-list"></i> <span>Posts list</span></a>
+            </div>
+        </div>
+    </li>
  
     <!-- Divider -->
     <hr class="sidebar-divider" />

@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\FrontendController;
+use App\Http\Controllers\PostsController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -19,4 +20,5 @@ Route::prefix('admin')->as('admin.')->middleware('auth')->group(function () {
     Route::put('/user/password/update', [UserController::class, 'updatePassword'])->name('password.update');
 
     Route::resource('categories', CategoryController::class);
+    Route::resource('posts', PostsController::class);
 });
