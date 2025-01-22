@@ -23,7 +23,10 @@ class PostsController extends Controller
      */
     public function create()
     {
-        return view('admin.posts.create');
+        $categories = Category::all();
+        $selectedCategories = [];
+
+        return view('admin.posts.create', compact('categories', 'selectedCategories'));
     }
 
     /**
@@ -37,6 +40,7 @@ class PostsController extends Controller
         ]);
 
         Post::create($request->all());
+
         return redirect()->route('admin.posts.index')->with('success', 'Post created successfully.');
     }
 
@@ -55,8 +59,9 @@ class PostsController extends Controller
     {
         $post = Post::findOrFail($id);
         $categories = Category::all();
+        $selectedCategories = $post->categories->pluck('id')->toArray();
 
-        return view('admin.posts.create', compact('post', 'categories'));
+        return view('admin.posts.create', compact('post', 'categories', 'selectedCategories'));
     }
 
     /**
@@ -72,6 +77,8 @@ class PostsController extends Controller
         ]);
 
         $post->update($request->all());
+
+        $post->categories()->sync($request['categories']);
         return redirect()->route('admin.posts.index')->with('success', 'Post updated successfully.');
     }
 
