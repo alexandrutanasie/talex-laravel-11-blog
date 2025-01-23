@@ -39,7 +39,8 @@ class PostsController extends Controller
             'url' => 'required|string|max:255|unique:posts',
         ]);
 
-        Post::create($request->all());
+        $post = Post::create($request->all());
+        $post->categories()->sync($request->input('categories'));
 
         return redirect()->route('admin.posts.index')->with('success', 'Post created successfully.');
     }
